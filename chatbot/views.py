@@ -13,10 +13,10 @@ import unicodedata
 
 
 # Configuração da OpenAI e da Open Weather
-openai_api_key = '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'
+openai_api_key = '<your_api_key>'
 openai.api_key = openai_api_key
 OPEN_WEATHER_ENDPOINT = "http://api.openweathermap.org/data/2.5/weather"
-OPEN_WEATHER_API_KEY = "2a980c9e9a9bca47feca1752b1474cba"
+OPEN_WEATHER_API_KEY = "<your_api_key>"
 
 
 def obter_previsao_por_data_e_hora(cidade, data_solicitada, hora_solicitada=None):
