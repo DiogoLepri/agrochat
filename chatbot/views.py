@@ -10,11 +10,12 @@ import re
 from django.utils import timezone
 from datetime import datetime, timedelta, time
 import unicodedata
+from dotenv import load_dotenv
+import os
 
-
+load_dotenv()
 # Configuração da OpenAI e da Open Weather
-openai_api_key = '<your_api_key>'
-openai.api_key = openai_api_key
+openai.api_key = os.getenv("OPENAI_API_KEY")
 OPEN_WEATHER_ENDPOINT = "http://api.openweathermap.org/data/2.5/weather"
 OPEN_WEATHER_API_KEY = "<your_api_key>"
 
