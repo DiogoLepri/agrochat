@@ -1,7 +1,9 @@
 chatbot/__pycache__
 django_chatbot/__pycache__
 chatbot/migrations/__pycache__
-db.sqlite3
-.env
 venv
 *.pyc
+
+
+.env
+db.sqlite3
