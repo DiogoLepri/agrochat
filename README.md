@@ -4,7 +4,7 @@
 
 AgroChat is an innovative Django project that leverages real-time weather data to provide specific and efficient recommendations for each user. It integrates with the real-time weather data API to offer accurate information about current and future weather conditions. Moreover, it is enhanced with the ChatGPT generative text API, transforming it into an intelligent virtual assistant for agriculture.
 
-## System Requirements
+## Prerequisites
 
 Make sure to have the following requirements installed before getting started:
 
