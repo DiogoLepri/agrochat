@@ -24,7 +24,7 @@ Make sure to have the following requirements installed before getting started:
    git clone https://github.com/raphaelgpalma/agrochat.git
    ```
 
-2. Virtual Environment Setup
+2. Virtual Environment Setup:
 
 I recommend using a virtual environment to isolate project dependencies. Execute the following commands to create and activate a virtual environment:
 
@@ -34,13 +34,32 @@ I recommend using a virtual environment to isolate project dependencies. Execute
 python -m venv venv
 source venv/bin/activate
 ```
-3. Install Project Dependencies
+3. Install Project Dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
-4. Run the Project's Server
+
+4. Create a .env file at the root of your project:
+
+  ```bash
+  touch .env
+  ```
+
+  Add on your .env file:
+
+  ```bash
+  OPENAI_API_KEY=<YOUR OPENAI API KEY>
+  OPEN_WEATHER_API_KEY=<YOUR OPEN WEATHER API KEY>
+  ```
+
+5. Run the Project's Server:
 
 ```bash
 python manage.py runserver
 ```
+If you want to stop running the server press CTRL+C on Terminal
+
+
+
+   
