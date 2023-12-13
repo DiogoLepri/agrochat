@@ -22,8 +22,9 @@ Make sure to have the following requirements installed before getting started:
 
    ```bash
    git clone https://github.com/raphaelgpalma/agrochat.git
+   ```
 
-## Virtual Environment Setup
+2. Virtual Environment Setup
 
 I recommend using a virtual environment to isolate project dependencies. Execute the following commands to create and activate a virtual environment:
 
@@ -33,8 +34,13 @@ I recommend using a virtual environment to isolate project dependencies. Execute
 python -m venv venv
 source venv/bin/activate
 ```
-## Install Project Dependencies
+3. Install Project Dependencies
 
 ```bash
 pip install -r requirements.txt
+```
+4. Run the Project's Server
+
+```bash
+python manage.py runserver
 ```
