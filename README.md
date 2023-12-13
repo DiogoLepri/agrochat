@@ -16,6 +16,13 @@ Make sure to have the following requirements installed before getting started:
 
 [Other necessary dependencies and API keys]
 
+## Usage
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/raphaelgpalma/agrochat.git
+
 ## Virtual Environment Setup
 
 I recommend using a virtual environment to isolate project dependencies. Execute the following commands to create and activate a virtual environment:
