@@ -20,9 +20,9 @@ Make sure to have the following requirements installed before getting started:
 
 1. Clone this repository:
 
-   ```bash
-   git clone https://github.com/raphaelgpalma/agrochat.git
-   ```
+```bash
+git clone https://github.com/raphaelgpalma/agrochat.git
+```
 
 2. Virtual Environment Setup:
 
