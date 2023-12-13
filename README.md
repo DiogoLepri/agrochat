@@ -8,10 +8,10 @@ AgroChat is an innovative Django project that leverages real-time weather data t
 
 Make sure to have the following requirements installed before getting started:
 
-- **Python**: 3.x
+- **Python**: 
   - [Download Python](https://www.python.org/downloads/)
 
-- **Django**: 3.x
+- **Django**: 
   - [Django Documentation](https://docs.djangoproject.com/en/3.0/)
 
 [Other necessary dependencies and API keys]
