@@ -18,14 +18,16 @@ Make sure to have the following requirements installed before getting started:
 
 ## Virtual Environment Setup
 
-We recommend using a virtual environment to isolate project dependencies. Execute the following commands to create and activate a virtual environment:
+I recommend using a virtual environment to isolate project dependencies. Execute the following commands to create and activate a virtual environment:
 
 ```bash
+# On Windows, use venv\Scripts\activate
+# On Unix or MacOS, use source venv/bin/activate
 python -m venv venv
-source venv/bin/activate  # On Windows, use "venv\Scripts\activate"
-
-
+source venv/bin/activate
+```
 ## Install Project Dependencies
 
 ```bash
 pip install -r requirements.txt
+```
