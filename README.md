@@ -11,11 +11,6 @@ Make sure to have the following requirements installed before getting started:
 - **Python**: 
   - [Download Python](https://www.python.org/downloads/)
 
-- **Django**: 
-  - [Django Documentation](https://docs.djangoproject.com/en/3.0/)
-
-[Other necessary dependencies and API keys]
-
 ## Usage
 
 1. Clone this repository:
