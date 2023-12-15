@@ -300,7 +300,7 @@ def chatbot(request):
         chat.save()
         return JsonResponse({'message': message, 'response': final_response})
 
-    return render(request, 'chatbot.html', {'chats': chats})
+    return render(request, 'chatbot/chatbot.html', {'chats': chats})
 
 
 # As funções de autenticação (login, register, logout) permanecem as mesmas e não foram incluídas aqui para economizar espaço.
@@ -315,9 +315,9 @@ def login(request):
             return redirect('chatbot')
         else:
             error_message = 'Usuário ou senha inválidos'
-            return render(request, 'login.html', {'error_message': error_message})
+            return render(request, 'chatbot/login.html', {'error_message': error_message})
     else:
-        return render(request, 'login.html')
+        return render(request, 'chatbot/login.html')
 
 
 def register(request):
@@ -335,11 +335,11 @@ def register(request):
                 return redirect('chatbot')
             except:
                 error_message = 'Erro criando a conta'
-                return render(request, 'register.html', {'error_message': error_message})
+                return render(request, 'chatbot/register.html', {'error_message': error_message})
         else:
             error_message = 'Senha não compatível'
-            return render(request, 'register.html', {'error_message': error_message})
-    return render(request, 'register.html')
+            return render(request, 'chabot/register.html', {'error_message': error_message})
+    return render(request, 'chatbot/register.html')
 
 
 def logout(request):
@@ -348,7 +348,7 @@ def logout(request):
 
 
 def inicial(request):
-    return render(request, 'inicial.html')
+    return render(request, 'chatbot/inicial.html')
 
 
 def login(request):
@@ -361,6 +361,6 @@ def login(request):
             return redirect('chatbot')
         else:
             error_message = 'Usuário ou senha inválidos'
-            return render(request, 'login.html', {'error_message': error_message})
+            return render(request, 'chatbot/login.html', {'error_message': error_message})
     else:
-        return render(request, 'login.html')
+        return render(request, 'chatbot/login.html')
