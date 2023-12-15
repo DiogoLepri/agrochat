@@ -344,11 +344,11 @@ def register(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('inicial')
+    return redirect('home')
 
 
-def inicial(request):
-    return render(request, 'chatbot/inicial.html')
+def home(request):
+    return render(request, 'chatbot/home.html')
 
 
 def login(request):
