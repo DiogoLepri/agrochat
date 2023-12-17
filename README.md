@@ -29,7 +29,7 @@ I recommend using a virtual environment to isolate project dependencies. Execute
 ```bash
 # On Windows, use venv\Scripts\activate
 # On Unix or MacOS, use source venv/bin/activate
-python -m venv venv
+python -m venv venv # Or virtualenv venv
 source venv/bin/activate
 ```
 3. Install Project Dependencies:
