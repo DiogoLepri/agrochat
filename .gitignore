@@ -3,6 +3,4 @@ django_chatbot/__pycache__
 chatbot/migrations/__pycache__
 venv
 *.pyc
-
-
 .env
