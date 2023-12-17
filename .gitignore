@@ -6,4 +6,3 @@ venv
 
 
 .env
-db.sqlite3
