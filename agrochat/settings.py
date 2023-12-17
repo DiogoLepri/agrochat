@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_chatbot.wsgi.application'
+WSGI_APPLICATION = 'agrochat.wsgi.application'
 
 
 # Database
