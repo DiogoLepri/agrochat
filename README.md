@@ -44,19 +44,20 @@ pip install -r requirements.txt
   touch .env
   ```
 
-  Add on your .env file:
+ 5. Add on your .env file:
 
   ```bash
   OPENAI_API_KEY=<YOUR OPENAI API KEY>
   OPEN_WEATHER_API_KEY=<YOUR OPEN WEATHER API KEY>
   ```
 
-5. Run the Project's Server:
+6. Run the Project's Server:
 
 ```bash
 python manage.py runserver
 ```
 If you want to stop running the server press CTRL+C on Terminal
+
 
 
 
