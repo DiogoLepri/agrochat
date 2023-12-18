@@ -96,13 +96,15 @@ def obter_clima_em_tempo_real(cidade):
     return {
         'clima': data['weather'][0]['description'],
         'temperatura': data['main']['temp'],
-        'umidade': data['main']['humidity']
+        'umidade': data['main']['humidity'],
+        'pressao': data['main']['pressure'],
+        'velocidade_vento': data['wind']['speed'],
     }
 
 
 def format_payload_for_openai(weather_data):
-    # Mensagem modelo com um espaço reservado para os dados do clima.
-    # Esta é apenas uma sugestão. Você pode criar sua própria mensagem baseada no que quer perguntar ao GPT-3.
+    
+    
     message_template = "Com base nos seguintes dados meteorológicos WEATHER_JSON, você pode fornecer um resumo?"
 
     stringJson = json.dumps(weather_data)
@@ -115,10 +117,12 @@ def format_payload_for_openai(weather_data):
 
 def ask_open_weather_and_openai(city):
     weather_data = obter_clima_em_tempo_real(city)
-    system_message = "Voce é um assitente climatico para agronegocio"
+    system_message = "Voce é um assitente climatico para agronegocio, adicione algumas recomendacoes sobre os dados."
     user_message = (f"Em {city}, o clima é descrito como {weather_data['clima']}. "
                     f"A temperatura atual é de {weather_data['temperatura']}°C "
-                    f"e a umidade é de {weather_data['umidade']}%.")
+                    f"e a umidade relativa é de {weather_data['umidade']}%."
+                    f"e a pressao é de {weather_data['pressao']}."
+                    f"e a velocidade do vento é de {weather_data['velocidade_vento']} km/h.")
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -137,7 +141,7 @@ def ask_open_weather_forecast_and_openai(city, date_solicited, hora_solicitada):
     if isinstance(forecast_data, str):  # Se for uma string, retorne-a diretamente
         return forecast_data
 
-    # Aqui, vou considerar apenas a primeira entrada da previsão para simplificar, mas você pode adaptar conforme necessário.
+    
     first_forecast = forecast_data
 
     system_message = "Você é um assistente climático para agronegócio"
