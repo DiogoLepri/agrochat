@@ -23,7 +23,7 @@ OPEN_WEATHER_ENDPOINT = "http://api.openweathermap.org/data/2.5/weather"
 OPEN_WEATHER_API_KEY = os.getenv("OPEN_WEATHER_API_KEY")
 
 
-def obter_previsao_por_data_e_hora(cidade, data_solicitada, hora_solicitada=None):
+def get_forecast_with_hour_and_date(cidade, data_solicitada, hora_solicitada=None):
     PREVISAO_ENDPOINT = "http://api.openweathermap.org/data/2.5/forecast"
 
     params = {
@@ -79,7 +79,7 @@ def obter_previsao_por_data_e_hora(cidade, data_solicitada, hora_solicitada=None
     return result
 
 
-def obter_clima_em_tempo_real(cidade):
+def get_real_time_weather(cidade):
     params = {
         'q': cidade,
         'appid': OPEN_WEATHER_API_KEY,
@@ -116,12 +116,12 @@ def format_payload_for_openai(weather_data):
 
 
 def ask_open_weather_and_openai(city):
-    weather_data = obter_clima_em_tempo_real(city)
+    weather_data = get_real_time_weather(city)
     system_message = "Voce é um assitente climatico para agronegocio, adicione algumas recomendacoes sobre os dados."
     user_message = (f"Em {city}, o clima é descrito como {weather_data['clima']}. "
                     f"A temperatura atual é de {weather_data['temperatura']}°C "
                     f"e a umidade relativa é de {weather_data['umidade']}%."
-                    f"e a pressao é de {weather_data['pressao']}."
+                    f"e a pressao é de {weather_data['pressao']} hPa."
                     f"e a velocidade do vento é de {weather_data['velocidade_vento']} km/h.")
 
     response = openai.ChatCompletion.create(
@@ -136,7 +136,7 @@ def ask_open_weather_and_openai(city):
 
 
 def ask_open_weather_forecast_and_openai(city, date_solicited, hora_solicitada):
-    forecast_data = obter_previsao_por_data_e_hora(city, date_solicited, hora_solicitada)
+    forecast_data = get_forecast_with_hour_and_date(city, date_solicited, hora_solicitada)
 
     if isinstance(forecast_data, str):  # Se for uma string, retorne-a diretamente
         return forecast_data
