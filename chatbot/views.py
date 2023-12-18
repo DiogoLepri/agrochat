@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from .models import Chat
 import json
 import re
+import spacy
 from django.utils import timezone
 from datetime import datetime, timedelta, time
 import unicodedata
@@ -177,29 +178,12 @@ def ask_gpt(message):
 
 
 def extract_city_from_message(message):
-      # Certifique-se de importar o módulo re
 
-    # Procura por várias possibilidades de padrões que mencionam o clima e a cidade
-    patterns = [
-        r'(clima|tempo) em (\w+(?: \w+){0,3})',
-        r'como está o clima em (\w+(?: \w+){0,3})',
-        r'qual é o tempo em (\w+(?: \w+){0,3})',
-        r'qual é o clima em (\w+(?: \w+){0,3})',
-        r'(\w+(?: \w+){0,3}) está frio',
-        r'está chovendo em (\w+(?: \w+){0,3})',
-        r'previsão do tempo para (\w+(?: \w+){0,3})',
-        r'previsão do tempo em (\w+(?: \w+){0,3})',
-        r'previsão do tempo na cidade de (\w+(?: \w+){0,3})'
-    ]
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(message)
 
-    for pattern in patterns:
-        match = re.search(pattern, message, re.IGNORECASE)
-        if match:
-            # Retorna o último grupo capturado
-            return match.groups()[-1]
-
-    return None
-
+    cities = [ent.text for ent in doc.ents if ent.label_ == "GPE"]
+    return cities
 
 
 
