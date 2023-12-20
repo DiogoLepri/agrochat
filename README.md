@@ -1,7 +1,5 @@
 ## AgroChat 
 
-Descrição curta do seu projeto.
-
 <p align="center">
   <img src="https://github.com/raphaelgpalma/agrochat/blob/main/static/output.png" alt="Descrição da Imagem">
 </p>
