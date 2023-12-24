@@ -14,6 +14,8 @@ import unicodedata
 from dotenv import load_dotenv
 import os
 from channels.generic.websocket import AsyncWebsocketConsumer
+from django.shortcuts import render
+from django.views.generic import TemplateView
 
 load_dotenv()
 

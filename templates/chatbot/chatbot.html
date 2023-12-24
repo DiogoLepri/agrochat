@@ -100,6 +100,7 @@
   const messageInput = document.querySelector('.message-input');
   const messagesBox = document.querySelector('.messages-box');
   const btnScrollBottom = document.getElementById('btn-scroll-bottom'); // Corrected ID
+  const socket = new WebSocket('ws://' + window.location.host + '/ws/chat/');
 
 
   function formatResponse(response) {
@@ -134,7 +135,7 @@
 
     const message = messageInput.value.trim();
     if (message.length === 0) {
-      return;
+        return;
     }
 
     const messageItem = document.createElement('li');
@@ -151,6 +152,10 @@
         </div>`;
     messagesList.appendChild(messageItem);
     scrollToBottom();
+
+    socket.send(JSON.stringify({
+        message: message
+    }));
 
     messageInput.value = '';
 
