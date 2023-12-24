@@ -13,6 +13,7 @@ from datetime import datetime, timedelta, time
 import unicodedata
 from dotenv import load_dotenv
 import os
+from channels.generic.websocket import AsyncWebsocketConsumer
 
 load_dotenv()
 
