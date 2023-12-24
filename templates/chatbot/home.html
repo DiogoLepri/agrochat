@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="pt-br">
   <head>
-    <link rel="icon" href="static/logo.png" >
+    <link rel="icon" href="static/images/logo.png" >
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}{% endblock %}AgroChat</title>
@@ -14,7 +14,7 @@
         <div class="parallax__layer sky"></div>
         <div class="parallax__layer hero-text">
           {% load static %}
-          <img id=logo src="{% static 'Transparent.png' %}">
+          <img id=logo src="{% static '/images/Transparent.png' %}">
 
             <ul>
             <li><a class="login" href="login">Login</a></li>
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="parallax__group info-container">
-         <img id=logo2 src="{% static 'fundobranco.png' %}">
+         <img id=logo2 src="{% static '/images/fundobranco.png' %}">
         <div class="text-container">
           <h2>Sobre o AgroChat</h2>
           <p id="agro">O AgroChat é um assistente virtual avançado projetado para fornecer dados climáticos em tempo real aos usuários. Com a integração da tecnologia de inteligência artificial de texto generativo, o AgroChat não apenas apresenta informações meteorológicas atualizadas, mas também as analisa e interpreta. Por meio de insights, previsões e análises em linguagem natural, ele oferece aos usuários uma compreensão detalhada e contextualizada das condições climáticas. Esse assistente é especialmente útil para profissionais do setor agrícola,

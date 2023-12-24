@@ -1,5 +1,6 @@
 body {
     background-image: url("https://blog.sensix.ag/wp-content/uploads/2021/03/r3c006186.jpg");
+    background-size: 100%;
   }
   .login-container {
     display: flex;
