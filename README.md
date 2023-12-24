@@ -1,7 +1,7 @@
 ## AgroChat 
 
 <p align="center">
-  <img src="https://github.com/raphaelgpalma/agrochat/blob/main/static/output.png" alt="Descrição da Imagem">
+  <img src="https://github.com/raphaelgpalma/agrochat/blob/main/static/images/output.png" alt="Descrição da Imagem">
 </p>
 
 
