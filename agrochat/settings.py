@@ -73,7 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'agrochat.wsgi.application'
 
-ASGI_APPLICATION = 'agrochat.asgi.application'
+ASGI_APPLICATION = 'chatbot.routing.application'
 
 
 # Database

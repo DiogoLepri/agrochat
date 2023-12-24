@@ -100,20 +100,21 @@
   const messageInput = document.querySelector('.message-input');
   const messagesBox = document.querySelector('.messages-box');
   const btnScrollBottom = document.getElementById('btn-scroll-bottom'); // Corrected ID
-  const socket = new WebSocket('ws://' + window.location.host + '/ws/chat/');
+  const socket = new WebSocket('ws://127.0.0.1:8000/ws/chat/');
+
 
 
   function formatResponse(response) {
     const lines = response.split(/[:]/);
     const formattedResponse = lines.map(line => line.trim()).join(':\n');
     return formattedResponse;
-}
-
+  }
 
 
   function scrollToBottom() {
     messagesBox.scrollTop = messagesBox.scrollHeight;
   }
+
   messagesBox.addEventListener("scroll", function() {
     // Calculate the difference between the total height and the combined scroll position and viewport height
     let distanceFromBottom = messagesBox.scrollHeight - messagesBox.scrollTop - messagesBox.clientHeight;
