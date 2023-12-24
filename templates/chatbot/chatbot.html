@@ -103,6 +103,14 @@
   const btnScrollBottom = document.getElementById('btn-scroll-bottom'); // Corrected ID
 
 
+  function formatResponse(response) {
+    const lines = response.split(/[:\-]/);
+    const formattedResponse = lines.map(line => line.trim()).join(':\n');
+    return formattedResponse;
+}
+
+
+
   function scrollToBottom() {
     messagesBox.scrollTop = messagesBox.scrollHeight;
   }
@@ -160,22 +168,16 @@
         const response = data.response;
         const messageItem = document.createElement('li');
         messageItem.classList.add('message', 'received');
-        messageItem.innerHTML = `
-        <div class="message-text">
-            <div class="message-sender">
-              <img id=lgg src="{% static '/images/logo.png' %}"><b> AgroChat</b>
-            </div>
-            <div class="message-content">
-            <br>
+        messageItem.innerText = `
+        
                 ${response}
-            </div>
-        </div>
+            
           `;
         messagesList.appendChild(messageItem);
         scrollToBottom();
       });
   });
-  
+
 function askQuestion() {
     const question = "Qual é a sua pergunta?"; // Modifique para a pergunta desejada
 
@@ -285,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
           .then(response => response.json())
           .then(data => {
-            const response = data.response;
+            const response = formatResponse(data.response);
             const responseItem = document.createElement('li');
             responseItem.classList.add('message', 'received');
             responseItem.innerHTML = `
@@ -293,13 +295,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="message-sender">
                   <img id=lgg src="{% static '/images/logo.png' %}"> <b>AgroChat</b>
                 </div>
-                <div class="message-content">
+                <div class="message-content response">
                 <br>
                     ${response}
                 </div>
             </div>
               `;
             messagesList.appendChild(responseItem);
+            scrollToBottom();
           });
     }
 });

@@ -152,6 +152,7 @@ footer p {
 
 .hero-text {
   background: url('https://blog.sensix.ag/wp-content/uploads/2021/03/r3c006186.jpg');
+  background-repeat: no-repeat;
   background-size: 100%;
   transform: translateZ(0) scale(1);
   z-index: 7;
