@@ -23,7 +23,6 @@
     <button id="btnAskQuestion2" class="btn btn-primary2">Me de um exemplo de pergunta</button>
     <button id="btnAskQuestion3" class="btn btn-primary2">Depois de amanha, qual sera o clima em Londrina?</button>
     <button id="btnAskQuestion4" class="btn btn-primary2">O que é o Intech Experience?</button>
-    <button id="btnAskQuestion5" class="btn btn-primary2">Quais as principais pragas em uma safra?</button>
     <button id="btnAskQuestion6" class="btn btn-primary2">Atualmente, qual é o clima em Londrina?</button>
 
     {% if user.is_authenticated %}
@@ -104,7 +103,7 @@
 
 
   function formatResponse(response) {
-    const lines = response.split(/[:\-]/);
+    const lines = response.split(/[:]/);
     const formattedResponse = lines.map(line => line.trim()).join(':\n');
     return formattedResponse;
 }
@@ -156,25 +155,31 @@
     messageInput.value = '';
 
     fetch('', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        'csrfmiddlewaretoken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-        'message': message
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        const response = data.response;
-        const messageItem = document.createElement('li');
-        messageItem.classList.add('message', 'received');
-        messageItem.innerText = `
-        
-                ${response}
-            
-          `;
-        messagesList.appendChild(messageItem);
-        scrollToBottom();
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            'csrfmiddlewaretoken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            'message': message
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            const response = formatResponse(data.response);
+            const responseItem = document.createElement('li');
+            responseItem.classList.add('message', 'received');
+            responseItem.innerHTML = `
+            <div class="message-text">
+                <div class="message-sender">
+                  <img id=lgg src="{% static '/images/logo.png' %}"> <b>AgroChat</b>
+                </div>
+                <div class="message-content response">
+                <br>
+                    ${response}
+                </div>
+            </div>
+              `;
+            messagesList.appendChild(responseItem);
+            scrollToBottom();
       });
   });
 
@@ -230,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnAskQuestion2 = document.getElementById('btnAskQuestion2');
     const btnAskQuestion3 = document.getElementById('btnAskQuestion3');
     const btnAskQuestion4 = document.getElementById('btnAskQuestion4');
-    const btnAskQuestion5 = document.getElementById('btnAskQuestion5');
     const btnAskQuestion6 = document.getElementById('btnAskQuestion6');
     const messagesList = document.querySelector('.messages-list');  // Assumindo que você tenha uma classe assim para a lista de mensagens
 
@@ -254,9 +258,6 @@ document.addEventListener('DOMContentLoaded', function() {
         sendPredefinedQuestion("O que é o Intech Experience?");
     });
 
-    btnAskQuestion5.addEventListener('click', function() {
-        sendPredefinedQuestion("Quais as princias pragas em uma safra?");
-    });
 
     btnAskQuestion6.addEventListener('click', function() {
         sendPredefinedQuestion("Atualmente, qual é o clima em Londrina?");

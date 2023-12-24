@@ -117,7 +117,7 @@ def format_payload_for_openai(weather_data):
 
 def ask_open_weather_and_openai(city):
     weather_data = get_real_time_weather(city)
-    system_message = "Voce é um assitente climatico para agronegocio, adicione algumas recomendacoes sobre os dados."
+    system_message = "Voce é um assitente climatico para agronegocio, adicione algumas recomendacoes breves sobre os dados."
     user_message = (f"Em {city}, o clima é descrito como {weather_data['clima']}. "
                     f"A temperatura atual é de {weather_data['temperatura']}°C "
                     f"e a umidade relativa é de {weather_data['umidade']}%."
@@ -248,7 +248,7 @@ def extrair_horario(message):
 
 def format_response(response):
     """ Breaks the response into lines for better readability. """
-    lines = re.split('[:]', response)  # Vai dividir o texto em ":" e "-"
+    lines = re.split('[:]', response)  # Vai dividir o texto em ":"
     formatted_response = ":\n".join([line.strip() for line in lines if line])
     return formatted_response
 
