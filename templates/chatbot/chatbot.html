@@ -62,7 +62,7 @@
         <li class="message received">
           <div class="message-text">
             <div class="message-sender">
-              <img id=lgg src="{% static 'logo.png' %}"/><b>AgroChat</b>
+              <img id=lgg src="{% static '/images/logo.png' %}"/><b> AgroChat</b>
             </div>
             <div class="message-content">
                 <br>
@@ -163,7 +163,7 @@
         messageItem.innerHTML = `
         <div class="message-text">
             <div class="message-sender">
-              <img id=lgg src="{% static 'logo.png' %}"><b>AgroChat</b>
+              <img id=lgg src="{% static '/images/logo.png' %}"><b> AgroChat</b>
             </div>
             <div class="message-content">
             <br>
@@ -175,6 +175,7 @@
         scrollToBottom();
       });
   });
+  
 function askQuestion() {
     const question = "Qual é a sua pergunta?"; // Modifique para a pergunta desejada
 
@@ -210,7 +211,7 @@ function askQuestion() {
             messageItem.innerHTML = `
             <div class="message-text">
                 <div class="message-sender">
-                <img id=lgg src="{% static 'logo.png' %}"><b>AgroChat</b>
+                <img id=lgg src="{% static '/images/logo.png' %}"> <b>AgroChat</b>
                 </div>
                 <div class="message-content">
                 <br>
@@ -290,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
             responseItem.innerHTML = `
             <div class="message-text">
                 <div class="message-sender">
-                  <img id=lgg src="{% static 'logo.png' %}"><b>AgroChat</b>
+                  <img id=lgg src="{% static '/images/logo.png' %}"> <b>AgroChat</b>
                 </div>
                 <div class="message-content">
                 <br>

@@ -1,7 +1,11 @@
-body, html {
+body {
     height: 100%;
-    background-color: #555;
+    background-color: rgb(38, 38, 38);
   }
+
+html {
+    background-color: rgb(38, 38, 38);
+}
 
   .messages-box {
     flex: 1;
@@ -35,7 +39,7 @@ body, html {
   }
 
   .received {
-    background-color: #555;
+    background-color: rgb(38, 38, 38);
     align-self: flex-start;
     color: white;
   }
@@ -113,7 +117,7 @@ body, html {
   .sidebar-nav {
       width: 200px;
       height: 100%;
-      background-image: linear-gradient(#003018, #007b3c);
+      background: #003018;
       position: fixed;
       top: 0;
       left: 0;
