@@ -1,11 +1,15 @@
-const messagesList = document.querySelector('.messages-list');
+
+  const messagesList = document.querySelector('.messages-list');
   const messageForm = document.querySelector('.message-form');
   const messageInput = document.querySelector('.message-input');
   const messagesBox = document.querySelector('.messages-box');
   const btnScrollBottom = document.getElementById('btn-scroll-bottom'); // Corrected ID
-  const socket = new WebSocket('ws://127.0.0.1:8080/ws/chat/');
-  const userUsername = "{{ user.username }}";
+  const socket = new WebSocket('ws://127.0.0.1:8080/');
+    
 
+  function updateUserInfo(username) {
+    document.getElementById('user-username').innerText = username;
+}
 
 
   function formatResponse(response) {
@@ -49,7 +53,7 @@ const messagesList = document.querySelector('.messages-list');
     messageItem.innerHTML = `
         <div class="message-text">
             <div class="message-sender">
-                <b>${userUsername}</b>
+                ${userUsername}
             </div>
             <div class="message-content">
             <br>
@@ -102,7 +106,7 @@ function askQuestion() {
     messageItem.innerHTML = `
         <div class="message-text">
             <div class="message-sender">
-                <b>${userUsername}</b>
+                ${userUsername}
             </div>
             <div class="message-content">
             <br>
@@ -141,13 +145,14 @@ function askQuestion() {
             scrollToBottom();
         });
 }
-document.addEventListener('DOMContentLoaded', function() {
+
+
+
     const btnAskQuestion1 = document.getElementById('btnAskQuestion1');
     const btnAskQuestion2 = document.getElementById('btnAskQuestion2');
     const btnAskQuestion3 = document.getElementById('btnAskQuestion3');
     const btnAskQuestion4 = document.getElementById('btnAskQuestion4');
     const btnAskQuestion6 = document.getElementById('btnAskQuestion6');
-    const messagesList = document.querySelector('.messages-list');  // Assumindo que você tenha uma classe assim para a lista de mensagens
 
     function sendPredefinedQuestion(question) {
         sendMessageToChatbot(question);
@@ -180,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messageItem.innerHTML = `
             <div class="message-text">
                 <div class="message-sender">
-                    <b>${userUsername}</b>
+                    ${userUsername}
                 </div>
                 <div class="message-content">
                 <br>
@@ -216,5 +221,4 @@ document.addEventListener('DOMContentLoaded', function() {
             messagesList.appendChild(responseItem);
             scrollToBottom();
           });
-    }
-});
+    };

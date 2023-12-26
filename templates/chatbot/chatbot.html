@@ -49,7 +49,7 @@
           {% if chat.user == request.user %}
             <li class="message sent">
           <div class="message-text">
-            <div class="message-sender">
+            <div class="message-sender" id="user-username">
               <b>{{user.username}}</b>
             </div>
             <div class="message-content">
@@ -91,9 +91,14 @@
   </form>
 </div>
 </div>
-</body>
-</html>
+
+<script>
+  const userUsername = "<b>{{ user.username }}</b>";
+</script>
 
 <script src="{% static 'chatbot/js/chatbot.js' %}"></script>
+
+</body>
+</html>
 
 {% endblock %}
