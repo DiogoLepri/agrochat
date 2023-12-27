@@ -248,14 +248,6 @@ def extrair_horario(message):
 
 
 
-
-def format_response(response):
-    """ Breaks the response into lines for better readability. """
-    lines = re.split('[:]', response)  # Vai dividir o texto em ":"
-    formatted_response = ":\n".join([line.strip() for line in lines if line])
-    return formatted_response
-
-
 def chatbot(request):
     if not request.user.is_authenticated:
         return JsonResponse({
@@ -283,9 +275,6 @@ def chatbot(request):
             final_response = ask_open_weather_and_openai(city)
         else:  # Caso contrário, utilize o GPT para responder.
             final_response = ask_gpt(message)  # Você deve implementar a função ask_gpt de acordo com suas necessidades.
-
-        # Formatação da resposta
-        final_response = format_response(final_response)
 
         chat = Chat(user=request.user, message=message, response=final_response, created_at=timezone.now())
         chat.save()
