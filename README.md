@@ -50,7 +50,7 @@ pip install -r requirements.txt
   OPENAI_API_KEY=<YOUR OPENAI API KEY>
   OPEN_WEATHER_API_KEY=<YOUR OPEN WEATHER API KEY>
   ```
-6. Run WebSocket's Server with Gunicorn:
+6. Run Gunicorn Server:
 
  ```bash
 gunicorn -k uvicorn.workers.UvicornWorker agrochat.asgi:application --bind 127.0.0.1:8080
