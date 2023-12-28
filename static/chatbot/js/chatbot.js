@@ -3,7 +3,7 @@
   const messageForm = document.querySelector('.message-form');
   const messageInput = document.querySelector('.message-input');
   const messagesBox = document.querySelector('.messages-box');
-  const btnScrollBottom = document.getElementById('btn-scroll-bottom'); // Corrected ID
+  const btnScrollBottom = document.getElementById('btn-scroll-bottom');
     
 
   function updateUserInfo(username) {
@@ -62,9 +62,6 @@
     messagesList.appendChild(messageItem);
     scrollToBottom();
 
-    socket.send(JSON.stringify({
-        message: message
-    }));
 
     messageInput.value = '';
 
@@ -144,8 +141,6 @@ function askQuestion() {
             scrollToBottom();
         });
 }
-
-
 
     const btnAskQuestion1 = document.getElementById('btnAskQuestion1');
     const btnAskQuestion2 = document.getElementById('btnAskQuestion2');
