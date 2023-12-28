@@ -4,7 +4,6 @@
   const messageInput = document.querySelector('.message-input');
   const messagesBox = document.querySelector('.messages-box');
   const btnScrollBottom = document.getElementById('btn-scroll-bottom'); // Corrected ID
-  const socket = new WebSocket('ws://127.0.0.1:8080/');
     
 
   function updateUserInfo(username) {
